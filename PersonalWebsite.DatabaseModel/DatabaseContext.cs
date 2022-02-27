@@ -1,12 +1,15 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
 namespace PersonalWebsite.DatabaseModel;
+
 public class DatabaseContext : DbContext
 {
-    public DatabaseContext(DbContextOptions options) : base(options) {}
-    
+    public DatabaseContext(DbContextOptions options) : base(options)
+    {
+    }
+
     public DbSet<ProjectDetails> ProjectDetails { get; set; }
-    
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<ProjectDetails>()
