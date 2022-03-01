@@ -2,7 +2,7 @@
 
 namespace PersonalWebsite.CreateProject;
 
-public static class ProjectCreation
+public static class ProductCreation
 {
     private static int GetProjectIdFromDatabase(DatabaseContext context)
     {
@@ -15,7 +15,7 @@ public static class ProjectCreation
     }
 
     public static List<ProjectDetails> DefineProject(DatabaseContext context,
-        int projectId, string projectName, string url)
+        string projectName, string url)
     {
         List<ProjectDetails> project = new()
         {

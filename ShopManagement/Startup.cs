@@ -18,10 +18,10 @@ public class Startup
         services.AddMvc();
         services.AddRazorPages();
         services.AddDbContext<DatabaseContext>(opt => opt
-            .UseSqlServer(_config.GetConnectionString("PersonalWebsite"), builder =>
+            .UseSqlServer(_config.GetConnectionString("ShopManagement"), builder =>
             {
                 builder.EnableRetryOnFailure(5, TimeSpan.FromSeconds(10), null)
-                    .MigrationsAssembly("PersonalWebsite");
+                    .MigrationsAssembly("ShopManagement");
             }));
 
         //Inspects API code and generates Swagger documents
