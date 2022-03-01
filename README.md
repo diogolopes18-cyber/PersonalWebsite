@@ -1,7 +1,6 @@
-# PersonalWebsite
+# Shop Management
 
-Personal Website built using ASP.NET Core
-
+Shop Management web application
 
 ## Database
 
