@@ -8,12 +8,12 @@ public class DatabaseContext : DbContext
     {
     }
 
-    public DbSet<ProjectDetails> ProjectDetails { get; set; }
+    public DbSet<ProductDetails> ProjectDetails { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<ProjectDetails>()
-            .HasKey(pd => pd.ProjectId);
+        modelBuilder.Entity<ProductDetails>()
+            .HasKey(pd => pd.ProductId);
     }
 }
 

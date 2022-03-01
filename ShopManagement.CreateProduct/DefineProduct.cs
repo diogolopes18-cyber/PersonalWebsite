@@ -4,27 +4,27 @@ namespace PersonalWebsite.CreateProject;
 
 public static class ProductCreation
 {
-    private static int GetProjectIdFromDatabase(DatabaseContext context)
+    private static int GetProducttIdFromDatabase(DatabaseContext context)
     {
         if (!context.ProjectDetails.Any())
             return 1;
 
         return context.ProjectDetails
-            .Select(pd => pd.ProjectId)
+            .Select(pd => pd.ProductId)
             .Last() + 1;
     }
 
-    public static List<ProjectDetails> DefineProject(DatabaseContext context,
-        string projectName, string url)
+    public static List<ProductDetails> DefineProject(DatabaseContext context,
+        string projectName, string tag)
     {
-        List<ProjectDetails> project = new()
+        List<ProductDetails> project = new()
         {
-            new ProjectDetails
+            new ProductDetails
             {
-                ProjectId = GetProjectIdFromDatabase(context),
+                ProductId = GetProducttIdFromDatabase(context),
                 Name = projectName,
-                Url = url,
-                Date = DateTime.Now
+                Tag = tag,
+                InsertionDate = DateTime.Now
             }
         };
 
