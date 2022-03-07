@@ -4,7 +4,15 @@ namespace ShopManagement.CreateProject;
 
 public static class ProductCreation
 {
-    private static int GetProducttIdFromDatabase(DatabaseContext context)
+    private readonly string _productName;
+    private readonly string _tag;
+    public ProductCreation(string productName, string tag)
+    {
+        _productName = productName;
+        _tag = tag;
+    }
+    
+    private static int GetProductIdFromDatabase(DatabaseContext context)
     {
         if (!context.ProjectDetails.Any())
             return 1;
