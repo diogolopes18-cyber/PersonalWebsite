@@ -1,0 +1,24 @@
+﻿@page
+@{
+    ViewData["Title"] = "AddProduct";
+}
+
+<body xmlns="http://www.w3.org/1999/html">
+<div class="text-center">
+    <h1 class="display-4">Product</h1>
+    <form asp-controller="ProductCreation" asp-action="CreateProduct" enctype="multipart/form-data" method="post">
+        <fieldset>
+            <div class="form-group">
+                <label class="form-label mt-4">Product Name</label><p/>
+                <input type="text" name="productName"/>
+            </div>
+            <div class="form-group">
+                <label class="form-label mt-4">Tag</label><p/>
+                <input type="text" name="tag"/>
+            </div>
+        </fieldset>
+        <button type="submit" class="btn btn-primary">Create</button>
+    </form>
+</div>
+</body>
+
