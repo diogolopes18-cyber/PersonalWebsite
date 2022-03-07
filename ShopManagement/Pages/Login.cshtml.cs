@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace PersonalWebsite.Pages;
+namespace ShopManagement.Pages;
 
 public class Login : PageModel
 {
