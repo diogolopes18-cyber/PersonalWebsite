@@ -2,7 +2,7 @@
 
 namespace ShopManagement.CreateProject;
 
-public static class ProductCreation
+public class ProductCreation
 {
     private readonly string _productName;
     private readonly string _tag;
@@ -22,8 +22,7 @@ public static class ProductCreation
             .Last() + 1;
     }
 
-    public static List<ProductDetails> DefineProject(DatabaseContext context,
-        string projectName, string tag)
+    public List<ProductDetails> DefineProject(DatabaseContext context)
     {
         List<ProductDetails> project = new()
         {
