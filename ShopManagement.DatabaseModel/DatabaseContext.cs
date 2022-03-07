@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-
-namespace PersonalWebsite.DatabaseModel;
+using ShopManagement.DatabaseModel;
 
 public class DatabaseContext : DbContext
 {
