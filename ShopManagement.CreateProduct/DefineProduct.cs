@@ -28,9 +28,9 @@ public class ProductCreation
         {
             new ProductDetails
             {
-                ProductId = GetProducttIdFromDatabase(context),
-                Name = projectName,
-                Tag = tag,
+                ProductId = GetProductIdFromDatabase(context),
+                Name = _productName,
+                Tag = _tag,
                 InsertionDate = DateTime.Now
             }
         };
