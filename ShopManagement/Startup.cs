@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using PersonalWebsite.DatabaseModel;
+using ShopManagement.DatabaseModel;
 
-namespace PersonalWebsite;
+namespace ShopManagement;
 
 public class Startup
 {
