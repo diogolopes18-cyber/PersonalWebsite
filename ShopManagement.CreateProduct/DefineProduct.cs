@@ -16,10 +16,11 @@ public class ProductCreation
     {
         if (!context.ProjectDetails.Any())
             return 1;
-
-        return context.ProjectDetails
-            .Select(pd => pd.ProductId)
-            .Last() + 1;
+        else
+            return context.ProjectDetails
+                .OrderBy(pd => pd.ProductId)
+                .Select(pd => pd.ProductId)
+                .Last() + 1;
     }
 
     public List<ProductDetails> DefineProject(DatabaseContext context)
