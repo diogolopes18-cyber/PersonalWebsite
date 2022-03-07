@@ -1,6 +1,6 @@
-﻿using PersonalWebsite.DatabaseModel;
+﻿using ShopManagement.DatabaseModel;
 
-namespace PersonalWebsite.CreateProject;
+namespace ShopManagement.CreateProject;
 
 public static class ProductCreation
 {
