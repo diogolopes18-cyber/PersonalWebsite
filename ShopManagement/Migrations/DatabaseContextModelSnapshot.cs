@@ -4,11 +4,10 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using PersonalWebsite.DatabaseModel;
 
 #nullable disable
 
-namespace PersonalWebsite.Migrations
+namespace ShopManagement.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
     partial class DatabaseContextModelSnapshot : ModelSnapshot
@@ -22,26 +21,23 @@ namespace PersonalWebsite.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("ShopManagement.DatabaseModel.ProjectDetails", b =>
+            modelBuilder.Entity("ShopManagement.DatabaseModel.ProductDetails", b =>
                 {
-                    b.Property<int>("ProjectId")
-                        .ValueGeneratedOnAdd()
+                    b.Property<int>("ProductId")
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("ProjectId"), 1L, 1);
-
-                    b.Property<DateTime>("Date")
+                    b.Property<DateTime>("InsertionDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Url")
+                    b.Property<string>("Tag")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("ProjectId");
+                    b.HasKey("ProductId");
 
                     b.ToTable("ProjectDetails");
                 });

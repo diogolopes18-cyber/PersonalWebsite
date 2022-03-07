@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace PersonalWebsite.Migrations
+namespace ShopManagement.Migrations
 {
     public partial class InitialMigration : Migration
     {
@@ -13,15 +13,14 @@ namespace PersonalWebsite.Migrations
                 name: "ProjectDetails",
                 columns: table => new
                 {
-                    ProjectId = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
+                    ProductId = table.Column<int>(type: "int", nullable: false),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Url = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Date = table.Column<DateTime>(type: "datetime2", nullable: false)
+                    Tag = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    InsertionDate = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ProjectDetails", x => x.ProjectId);
+                    table.PrimaryKey("PK_ProjectDetails", x => x.ProductId);
                 });
         }
 
