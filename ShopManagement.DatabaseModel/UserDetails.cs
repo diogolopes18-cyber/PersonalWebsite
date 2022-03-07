@@ -1,4 +1,4 @@
-﻿namespace PersonalWebsite.DatabaseModel;
+﻿namespace ShopManagement.DatabaseModel;
 
 public class UserDetails
 {
