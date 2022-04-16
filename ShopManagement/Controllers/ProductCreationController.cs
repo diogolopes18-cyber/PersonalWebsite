@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using ShopManagement.DatabaseModel;
 
 namespace ShopManagement.Controllers;
 
@@ -24,7 +24,6 @@ public class ProductCreationController : Controller
         string name = Request.Form["productName"];
         string tag = Request.Form["tag"];
         ProductCreationControllerHandler.CreateProduct(name, tag, _context);
-        
         
         return Redirect("http://localhost:5000");
     }

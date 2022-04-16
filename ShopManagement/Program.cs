@@ -1,8 +1,3 @@
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using System;
 using ShopManagement.DatabaseModel;
 
 namespace ShopManagement
@@ -16,7 +11,6 @@ namespace ShopManagement
             using IServiceScope scope = host.Services.CreateScope();
             IServiceProvider services = scope.ServiceProvider;
             DatabaseContext context = services.GetRequiredService<DatabaseContext>();
-
             host.Run();
         }
 
