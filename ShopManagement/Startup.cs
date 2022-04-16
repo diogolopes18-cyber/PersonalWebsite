@@ -20,6 +20,7 @@ public class Startup
         services.AddDbContext<DatabaseContext>(opt => opt
             .UseSqlServer(_config.GetConnectionString("ShopManagement"), builder =>
             {
+                builder.MigrationsAssembly("ShopManagement.DatabaseModel");
                 builder.EnableRetryOnFailure(5, TimeSpan.FromSeconds(10), null)
                     .MigrationsAssembly("ShopManagement");
             }));
