@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+using ShopManagement.DatabaseModel;
 
 #nullable disable
 
@@ -40,6 +41,30 @@ namespace ShopManagement.Migrations
                     b.HasKey("ProductId");
 
                     b.ToTable("ProjectDetails");
+                });
+
+            modelBuilder.Entity("ShopManagement.DatabaseModel.UserDetails", b =>
+                {
+                    b.Property<string>("Username")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Hash")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("UserId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UserId"), 1L, 1);
+
+                    b.HasKey("Username");
+
+                    b.ToTable("User");
                 });
 #pragma warning restore 612, 618
         }
