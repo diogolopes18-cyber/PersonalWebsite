@@ -4,7 +4,7 @@
         <TargetFramework>net6.0</TargetFramework>
         <Nullable>enable</Nullable>
         <ImplicitUsings>enable</ImplicitUsings>
-        <RootNamespace>PersonalWebsite</RootNamespace>
+        <RootNamespace>ShopManagement</RootNamespace>
     </PropertyGroup>
 
     <ItemGroup>
@@ -22,7 +22,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\ShopManagement.DatabaseModel\ShopManagement.DatabaseModel.csproj" />
+      <ProjectReference Include="..\ShopManagement.CreateProduct\ShopManagement.CreateProduct.csproj" />
+      <ProjectReference Include="..\ShopManagement.DatabaseModel\ShopManagement.DatabaseModel.csproj" />
     </ItemGroup>
-
 </Project>

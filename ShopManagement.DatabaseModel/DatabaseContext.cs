@@ -1,19 +1,23 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace PersonalWebsite.DatabaseModel;
+namespace ShopManagement.DatabaseModel;
 
 public class DatabaseContext : DbContext
 {
-    public DatabaseContext(DbContextOptions options) : base(options)
+    public DatabaseContext(DbContextOptions<DatabaseContext> options) : base(options)
     {
     }
 
-    public DbSet<ProjectDetails> ProjectDetails { get; set; }
+    public DbSet<ProductDetails> ProjectDetails { get; set; }
+    public DbSet<UserDetails> User { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        modelBuilder.Entity<ProjectDetails>()
-            .HasKey(pd => pd.ProjectId);
+        modelBuilder.Entity<ProductDetails>()
+            .HasKey(pd => pd.ProductId);
+
+        modelBuilder.Entity<UserDetails>()
+            .HasKey(pd => pd.Username);
     }
 }
 

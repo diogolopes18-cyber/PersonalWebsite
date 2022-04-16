@@ -1,30 +1,38 @@
-﻿using PersonalWebsite.DatabaseModel;
+﻿using ShopManagement.DatabaseModel;
 
-namespace PersonalWebsite.CreateProject;
+namespace ShopManagement.CreateProject;
 
-public static class ProductCreation
+public class ProductCreation
 {
-    private static int GetProjectIdFromDatabase(DatabaseContext context)
+    private readonly string _productName;
+    private readonly string _tag;
+    public ProductCreation(string productName, string tag)
+    {
+        _productName = productName;
+        _tag = tag;
+    }
+    
+    private static int GetProductIdFromDatabase(DatabaseContext context)
     {
         if (!context.ProjectDetails.Any())
             return 1;
-
-        return context.ProjectDetails
-            .Select(pd => pd.ProjectId)
-            .Last() + 1;
+        else
+            return context.ProjectDetails
+                .OrderBy(pd => pd.ProductId)
+                .Select(pd => pd.ProductId)
+                .Last() + 1;
     }
 
-    public static List<ProjectDetails> DefineProject(DatabaseContext context,
-        string projectName, string url)
+    public List<ProductDetails> DefineProject(DatabaseContext context)
     {
-        List<ProjectDetails> project = new()
+        List<ProductDetails> project = new()
         {
-            new ProjectDetails
+            new ProductDetails
             {
-                ProjectId = GetProjectIdFromDatabase(context),
-                Name = projectName,
-                Url = url,
-                Date = DateTime.Now
+                ProductId = GetProductIdFromDatabase(context),
+                Name = _productName,
+                Tag = _tag,
+                InsertionDate = DateTime.Now
             }
         };
 

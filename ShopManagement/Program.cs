@@ -1,11 +1,6 @@
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using PersonalWebsite.DatabaseModel;
-using System;
+using ShopManagement.DatabaseModel;
 
-namespace PersonalWebsite
+namespace ShopManagement
 {
     public class Program
     {
@@ -16,7 +11,6 @@ namespace PersonalWebsite
             using IServiceScope scope = host.Services.CreateScope();
             IServiceProvider services = scope.ServiceProvider;
             DatabaseContext context = services.GetRequiredService<DatabaseContext>();
-
             host.Run();
         }
 

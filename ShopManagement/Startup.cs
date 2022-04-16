@@ -1,11 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using PersonalWebsite.DatabaseModel;
+using ShopManagement.DatabaseModel;
 
-namespace PersonalWebsite;
+namespace ShopManagement;
 
 public class Startup
 {
-    public IConfiguration _config { get; }
+    private IConfiguration _config { get; }
 
     public Startup(IConfiguration configuration)
     {
@@ -20,6 +20,7 @@ public class Startup
         services.AddDbContext<DatabaseContext>(opt => opt
             .UseSqlServer(_config.GetConnectionString("ShopManagement"), builder =>
             {
+                builder.MigrationsAssembly("ShopManagement.DatabaseModel");
                 builder.EnableRetryOnFailure(5, TimeSpan.FromSeconds(10), null)
                     .MigrationsAssembly("ShopManagement");
             }));
