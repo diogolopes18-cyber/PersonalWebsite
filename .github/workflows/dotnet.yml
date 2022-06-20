@@ -17,6 +17,8 @@ jobs:
       uses: actions/setup-dotnet@v2
       with:
         dotnet-version: 6.0.x
+    - name: Restore
+      - dotnet restore
     - name: Build
       run: dotnet build --no-restore
     - name: Test
