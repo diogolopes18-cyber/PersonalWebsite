@@ -6,6 +6,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopManagement.DatabaseMode
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopManagement.CreateProduct", "ShopManagement.CreateProduct\ShopManagement.CreateProduct.csproj", "{F5892710-1C9D-479B-A0E6-0093463222CA}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopManagement.Tests", "ShopManagement.Tests\ShopManagement.Tests.csproj", "{639C8506-C784-4017-BDBF-08B58B4D33A2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -24,5 +26,9 @@ Global
 		{F5892710-1C9D-479B-A0E6-0093463222CA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F5892710-1C9D-479B-A0E6-0093463222CA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F5892710-1C9D-479B-A0E6-0093463222CA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{639C8506-C784-4017-BDBF-08B58B4D33A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{639C8506-C784-4017-BDBF-08B58B4D33A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{639C8506-C784-4017-BDBF-08B58B4D33A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{639C8506-C784-4017-BDBF-08B58B4D33A2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
