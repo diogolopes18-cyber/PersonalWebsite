@@ -16,6 +16,13 @@ public class ProductCreationController : Controller
     }
 
     [HttpGet]
+    [Route("api/products")]
+    public List<ProductDetails> GetProducts()
+    {
+        return _context.ProjectDetails.ToList();
+    }
+
+    [HttpGet]
     public IActionResult AddProduct() => View();
 
     [HttpPost]
