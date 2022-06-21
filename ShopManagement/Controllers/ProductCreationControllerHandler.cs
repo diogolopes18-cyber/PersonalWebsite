@@ -3,7 +3,7 @@ using ShopManagement.CreateProject;
 
 namespace ShopManagement.Controllers;
 
-internal static class ProductCreationControllerHandler
+public static class ProductCreationControllerHandler
 {
     internal static void CreateProduct(string productName, string tag,
         DatabaseContext context)
@@ -17,5 +17,10 @@ internal static class ProductCreationControllerHandler
         }
 
         context.SaveChanges();
+    }
+
+    public static IEnumerable<ProductDetails> GetProducts(DatabaseContext context)
+    {
+        return context.ProjectDetails.ToList();
     }
 }

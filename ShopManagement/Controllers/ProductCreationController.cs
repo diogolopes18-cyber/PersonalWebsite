@@ -17,9 +17,9 @@ public class ProductCreationController : Controller
 
     [HttpGet]
     [Route("api/products")]
-    public List<ProductDetails> GetProducts()
+    public IEnumerable<ProductDetails> GetProducts()
     {
-        return _context.ProjectDetails.ToList();
+        return ProductCreationControllerHandler.GetProducts(_context);
     }
 
     [HttpGet]
