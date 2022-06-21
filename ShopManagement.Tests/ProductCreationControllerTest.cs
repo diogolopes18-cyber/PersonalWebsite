@@ -1,4 +1,8 @@
 using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using Microsoft.AspNetCore.Builder;
 using ShopManagement.Controllers;
 using ShopManagement.DatabaseModel;
 using Xunit;
@@ -16,16 +20,8 @@ public class ProductCreationControllerTest : IClassFixture<TestDatabaseFixture>
     public void ProductHasName()
     {
         using DatabaseContext context = TestDatabaseFixture.CreateContext();
-        ProductDetails product = new ProductDetails()
-        {
-            InsertionDate = DateTime.Now,
-            Name = "PF-Test",
-            ProductId = 23,
-            Tag = "3289329"
-        };
-
-        context.ProjectDetails.Add(product);
-        context.SaveChanges();
+        var jsonData = System.IO.File.ReadAllText(@"C:\Users\Diogo Lopes\RiderProjects\ShopManagement\ShopManagement.Tests\DatabaseSeedFiles\ProjectDetails.json");
+        Seeder.Seed(jsonData, context);
 
         var productName = ProductCreationControllerHandler.GetProducts(context);
         Assert.NotEmpty(productName);
