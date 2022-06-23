@@ -22,6 +22,23 @@ namespace ShopManagement.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
+            modelBuilder.Entity("ShopManagement.DatabaseModel.ConsumptionRegister", b =>
+                {
+                    b.Property<string>("Username")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("DrinkType")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("date")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Username");
+
+                    b.ToTable("ConsumptionRegisters");
+                });
+
             modelBuilder.Entity("ShopManagement.DatabaseModel.ProductDetails", b =>
                 {
                     b.Property<int>("ProductId")

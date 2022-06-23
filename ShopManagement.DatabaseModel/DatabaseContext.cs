@@ -10,6 +10,7 @@ public class DatabaseContext : DbContext
 
     public DbSet<ProductDetails> ProjectDetails { get; set; }
     public DbSet<UserDetails> User { get; set; }
+    public DbSet<ConsumptionRegister> ConsumptionRegisters { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -17,6 +18,9 @@ public class DatabaseContext : DbContext
             .HasKey(pd => pd.ProductId);
 
         modelBuilder.Entity<UserDetails>()
+            .HasKey(pd => pd.Username);
+        
+        modelBuilder.Entity<ConsumptionRegister>()
             .HasKey(pd => pd.Username);
     }
 }
