@@ -17,7 +17,7 @@ public static class Seeder {
             JsonConvert.DeserializeObject<List<ProductDetails>>(
                 jsonData, settings);
 
-        context.Database.EnsureDeleted();
+        //context.Database.EnsureDeleted();
         context.Database.EnsureCreated();
 
         if (!context.ProjectDetails.Any())
