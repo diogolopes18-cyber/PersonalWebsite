@@ -12,8 +12,8 @@ using ShopManagement.DatabaseModel;
 namespace ShopManagement.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20220307174300_InitialMigration")]
-    partial class InitialMigration
+    [Migration("20220623150906_DefineDateAttribute")]
+    partial class DefineDateAttribute
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -23,6 +23,23 @@ namespace ShopManagement.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
+
+            modelBuilder.Entity("ShopManagement.DatabaseModel.ConsumptionRegister", b =>
+                {
+                    b.Property<string>("Username")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("DrinkType")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("date")
+                        .HasColumnType("datetime2");
+
+                    b.HasKey("Username");
+
+                    b.ToTable("ConsumptionRegisters");
+                });
 
             modelBuilder.Entity("ShopManagement.DatabaseModel.ProductDetails", b =>
                 {
@@ -43,6 +60,30 @@ namespace ShopManagement.Migrations
                     b.HasKey("ProductId");
 
                     b.ToTable("ProjectDetails");
+                });
+
+            modelBuilder.Entity("ShopManagement.DatabaseModel.UserDetails", b =>
+                {
+                    b.Property<string>("Username")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Hash")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("UserId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UserId"), 1L, 1);
+
+                    b.HasKey("Username");
+
+                    b.ToTable("User");
                 });
 #pragma warning restore 612, 618
         }

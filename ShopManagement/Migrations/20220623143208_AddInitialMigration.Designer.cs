@@ -12,8 +12,8 @@ using ShopManagement.DatabaseModel;
 namespace ShopManagement.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20220416204445_AddUserDetails")]
-    partial class AddUserDetails
+    [Migration("20220623143208_AddInitialMigration")]
+    partial class AddInitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
