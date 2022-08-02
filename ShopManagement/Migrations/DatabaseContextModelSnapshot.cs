@@ -24,17 +24,24 @@ namespace ShopManagement.Migrations
 
             modelBuilder.Entity("ShopManagement.DatabaseModel.ConsumptionRegister", b =>
                 {
-                    b.Property<string>("Username")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("TransactionId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("TransactionId"), 1L, 1);
 
                     b.Property<string>("DrinkType")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Username")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("date")
                         .HasColumnType("datetime2");
 
-                    b.HasKey("Username");
+                    b.HasKey("TransactionId");
 
                     b.ToTable("ConsumptionRegisters");
                 });
