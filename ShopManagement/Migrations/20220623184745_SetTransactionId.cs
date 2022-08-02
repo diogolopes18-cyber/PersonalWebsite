@@ -5,10 +5,25 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace ShopManagement.Migrations
 {
-    public partial class AddInitialMigration : Migration
+    public partial class SetTransactionId : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.CreateTable(
+                name: "ConsumptionRegisters",
+                columns: table => new
+                {
+                    TransactionId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Username = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    DrinkType = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    date = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ConsumptionRegisters", x => x.TransactionId);
+                });
+
             migrationBuilder.CreateTable(
                 name: "ProjectDetails",
                 columns: table => new
@@ -41,6 +56,9 @@ namespace ShopManagement.Migrations
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "ConsumptionRegisters");
+
             migrationBuilder.DropTable(
                 name: "ProjectDetails");
 

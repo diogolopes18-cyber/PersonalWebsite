@@ -12,8 +12,8 @@ using ShopManagement.DatabaseModel;
 namespace ShopManagement.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20220623150906_DefineDateAttribute")]
-    partial class DefineDateAttribute
+    [Migration("20220623184745_SetTransactionId")]
+    partial class SetTransactionId
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -26,17 +26,24 @@ namespace ShopManagement.Migrations
 
             modelBuilder.Entity("ShopManagement.DatabaseModel.ConsumptionRegister", b =>
                 {
-                    b.Property<string>("Username")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("TransactionId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("TransactionId"), 1L, 1);
 
                     b.Property<string>("DrinkType")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Username")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("date")
                         .HasColumnType("datetime2");
 
-                    b.HasKey("Username");
+                    b.HasKey("TransactionId");
 
                     b.ToTable("ConsumptionRegisters");
                 });
