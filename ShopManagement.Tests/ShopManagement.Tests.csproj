@@ -29,4 +29,10 @@
       <ProjectReference Include="..\ShopManagement\ShopManagement.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+        <Content Include="DatabaseSeedFiles\**">
+            <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        </Content>
+    </ItemGroup>
+
 </Project>
