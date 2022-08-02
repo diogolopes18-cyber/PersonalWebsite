@@ -27,6 +27,7 @@ public class Startup
 
         //Inspects API code and generates Swagger documents
         services.AddMvcCore().AddApiExplorer();
+        services.AddSwaggerGen();
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -34,6 +35,12 @@ public class Startup
     {
         //Enable auto migrations
         context.Database.Migrate();
+        app.UseSwagger();
+        app.UseSwaggerUI(ui =>
+            {
+                ui.SwaggerEndpoint("/swagger/v1/swagger.json", "Shop Management v1");
+            }
+        );
 
         if (env.IsDevelopment())
             app.UseDeveloperExceptionPage();
@@ -41,11 +48,8 @@ public class Startup
             app.UseExceptionHandler("/Error");
 
         app.UseStaticFiles();
-
         app.UseRouting();
-
         app.UseAuthorization();
-
         app.UseEndpoints(endpoints =>
         {
             endpoints.MapControllerRoute(
