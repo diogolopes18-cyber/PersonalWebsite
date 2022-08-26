@@ -34,4 +34,14 @@ public class ProductCreationController : Controller
         
         return Redirect("http://localhost:5000");
     }
+
+    [HttpDelete]
+    [Route("/api/product/create")]
+    public async Task<IActionResult> DeleteProduct(int productId)
+    {
+        return await ProductControllerHandler
+            .DeleteProduct(_context, productId) != 0
+            ? Ok($"Product with ID {productId} deleted")
+            : BadRequest($"Product with ID {productId} deleted");
+    }
 }
