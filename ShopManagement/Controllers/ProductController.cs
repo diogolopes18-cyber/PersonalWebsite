@@ -6,20 +6,20 @@ namespace ShopManagement.Controllers;
 [ApiController]
 [Route("[controller]")]
 
-public class ProductCreationController : Controller
+public class ProductController : Controller
 {
     private readonly DatabaseContext _context;
 
-    public ProductCreationController(DatabaseContext context)
+    public ProductController(DatabaseContext context)
     {
         _context = context;
     }
 
     [HttpGet]
-    [Route("api/products")]
+    [Route("/api/products")]
     public IEnumerable<ProductDetails> GetProducts()
     {
-        return ProductCreationControllerHandler.GetProducts(_context);
+        return ProductControllerHandler.GetProducts(_context);
     }
 
     [HttpGet]
@@ -30,7 +30,7 @@ public class ProductCreationController : Controller
     {
         string name = Request.Form["productName"];
         string tag = Request.Form["tag"];
-        ProductCreationControllerHandler.CreateProduct(name, tag, _context);
+        ProductControllerHandler.CreateProduct(name, tag, _context);
         
         return Redirect("http://localhost:5000");
     }

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using ShopManagement.Controllers;
@@ -6,9 +7,9 @@ using Xunit;
 
 namespace ShopManagement.Tests;
 
-public class ProductCreationControllerTest : IClassFixture<TestDatabaseFixture>
+public class ProductControllerTest : IClassFixture<TestDatabaseFixture>
 {
-    public ProductCreationControllerTest(TestDatabaseFixture fixture)
+    public ProductControllerTest(TestDatabaseFixture fixture)
         => Fixture = fixture;
 
     private TestDatabaseFixture Fixture { get; }
@@ -21,7 +22,7 @@ public class ProductCreationControllerTest : IClassFixture<TestDatabaseFixture>
         string jsonData = File.ReadAllText($@"{referenceFileFolderLocation}\..\DatabaseSeedFiles\ProjectDetails.json");
         Seeder.Seed(jsonData, context);
 
-        var productName = ProductCreationControllerHandler.GetProducts(context);
+        IEnumerable<ProductDetails> productName = ProductControllerHandler.GetProducts(context);
         Assert.NotEmpty(productName);
         Assert.IsType<ProductDetails>(productName.First());
     }
